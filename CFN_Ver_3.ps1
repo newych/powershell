@@ -55,7 +55,7 @@ If ($missfilecount -ne 0)
                 Write-Host "Please check the missed file names, run the script again, see you"
                 <# terminate powershell and exit#>
                 $objExcel.workbooks.Close()
-                $a = $objExcel.Quit()
+                $objExcel.Quit()
                 $a = Release-Ref($objWorksheet) 
                 $a = Release-Ref($objWorkbook) 
                 $a = Release-Ref($objExcel)
@@ -95,8 +95,10 @@ Else {
         Write-Output "Please check your excel file"
     }
 
+<# close excel and release system resource #>
 $objExcel.workbooks.Close()
-$a = $objExcel.Quit()
+$objExcel.Quit()
 $a = Release-Ref($objWorksheet) 
 $a = Release-Ref($objWorkbook) 
 $a = Release-Ref($objExcel)
+<#This is the end#>
